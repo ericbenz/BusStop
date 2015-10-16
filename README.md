@@ -1,5 +1,3 @@
-# BusStop
-
 # Project Description
 Final project for COSI 134 Automated Speech Recognition.
 
