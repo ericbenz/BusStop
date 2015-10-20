@@ -1,23 +1,8 @@
-# Project Description
-Final project for COSI 134 Automated Speech Recognition.
+# BusStop
+Final project for [COSI 136a Automated Speech Recognition](http://www.cs.brandeis.edu/~cs136a/) (Prof. Marie Meteer). Essentially looking to develop an app that will allow us to roughly build on the functionalities already within 'NextBus', but enhance it with an ASR system. All this will be tailored specifically to MBTA bus routes using the [MBTA Developer Portal](http://realtime.mbta.com/portal).
 
-# Project Description
-Android app to expand functionality of 'NextBus' with additional routing information and choices based on Google Routing API. Includes Google ASR to allow voice control in additional to the standard touch controls.
-
-Group members (Brandeis Computational Linguistics MA '16s):
-
+### Group Members
+All students below are Brandeis Computational Linguistics MA 2016s
 - Eric Benzschawel
 - Adam Berger
 - Swini Garimella
-
-# TODO
-
-* App Interfaces
-* ASR recognition
-* Routing information
-* Design basics
-
-**Current primary goal**: TBD
-  - Eric current goal:
-  - Adam current goal:
-  - Swini current goal:
