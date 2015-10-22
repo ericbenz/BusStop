@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  WitAI
+//  final_wit_test
 //
-//  Created by Julian Abentheuer on 10.01.15.
-//  Copyright (c) 2015 Aaron Abentheuer. All rights reserved.
+//  Created by Eric Benzschawel on 10/22/2015
+//  Copyright (c) 2015 Eric Benzschawel. All rights reserved.
 //
 
 import UIKit

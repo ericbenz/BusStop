@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  WitAI
+//  final_wit_test
 //
-//  Created by Julian Abentheuer on 10.01.15.
-//  Copyright (c) 2015 Aaron Abentheuer. All rights reserved.
+//  Created by Eric Benzschawel on 10/22/2015
+//  Copyright (c) 2015 Eric Benzschawel. All rights reserved.
 //
 
 import UIKit
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MKMapViewDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         //You can grab your access-token from your Wit console, under Settings\Access Token.
-        Wit.sharedInstance().accessToken = "7UAWVK4HS4PKH4FVZD2NCUXXOO74FLE4"
+        Wit.sharedInstance().accessToken = "xxx"
         Wit.sharedInstance().detectSpeechStop = WITVadConfig.DetectSpeechStop
         
         return true

@@ -1,6 +1,5 @@
-# WitHelloWorld in Swift
-
-Simple implementation of the tutorial available at: https://wit.ai/docs/ios/4.0.0/quickstart written in Swift.
+# final_wit_test
+This is a simple rough implementation of [wit.ai](https://wit.ai) ASR implemented in swift with some of the additional functionality we are looking for. The code is based off aaronabentheuer's wit.ai swift implementation, linked in the main README page.
 
 ## Getting started
 

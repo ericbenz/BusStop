@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "801261D31A615373001E8618"
-               BuildableName = "WitAI.app"
-               BlueprintName = "WitAI"
-               ReferencedContainer = "container:WitAI.xcodeproj">
+               BuildableName = "final_wit_test.app"
+               BlueprintName = "final_wit_test"
+               ReferencedContainer = "container:final_wit_test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "801261E81A615373001E8618"
-               BuildableName = "WitAITests.xctest"
-               BlueprintName = "WitAITests"
-               ReferencedContainer = "container:WitAI.xcodeproj">
+               BuildableName = "final_wit_test.xctest"
+               BlueprintName = "final_wit_testTests"
+               ReferencedContainer = "container:final_wit_test.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
-            BuildableName = "WitAI.app"
-            BlueprintName = "WitAI"
-            ReferencedContainer = "container:WitAI.xcodeproj">
+            BuildableName = "final_wit_test.app"
+            BlueprintName = "final_wit_test"
+            ReferencedContainer = "container:final_wit_test.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
-            BuildableName = "WitAI.app"
-            BlueprintName = "WitAI"
-            ReferencedContainer = "container:WitAI.xcodeproj">
+            BuildableName = "final_wit_test.app"
+            BlueprintName = "final_wit_test"
+            ReferencedContainer = "container:final_wit_test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
-            BuildableName = "WitAI.app"
-            BlueprintName = "WitAI"
-            ReferencedContainer = "container:WitAI.xcodeproj">
+            BuildableName = "final_wit_test.app"
+            BlueprintName = "final_wit_test"
+            ReferencedContainer = "container:final_wit_test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

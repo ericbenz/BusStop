@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WitAI.xcodeproj">
+      location = "group:/Users/eric/Documents/Brandeis/Fall_2015/COSI136a_AutomatedSpeechRecognition/BusStop/final_wit_test/final_wit_test.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
