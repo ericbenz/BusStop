@@ -7,3 +7,5 @@ Replace `xxx` with your access token in `AppDeletage.swift`:
 ```
 Wit.sharedInstance().accessToken = "xxx" // replace xxx by your Wit access token
 ```
+## Running
+Since this was compiled with Cocoapods, make sure to run the `<name>.xcworkspace` file for it to run appropriately.
