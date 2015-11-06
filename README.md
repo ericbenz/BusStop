@@ -13,6 +13,7 @@ All students below are Brandeis Computational Linguistics MA 2016s
 - figure out how to get bus routing information
 - look into geographical coverage for transit routing
 - build out new wit intents
+- add conditional logic for each intent
 - train RouteToLocation intent (4x10 instances on mobile devices)
 
 ### User Testing
