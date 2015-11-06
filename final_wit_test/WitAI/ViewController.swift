@@ -82,22 +82,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             print("\(e.localizedDescription)")
             return
         }
-        
-        // depending on how we build out the decision tree, this code will need to be generalized to each different intent we build out
+
         
         // get the wit.ai results and store to outcomes
         let outcomes : NSArray = outcomes!
         let firstOutcome : NSDictionary = outcomes.objectAtIndex(0) as! NSDictionary
         let text : String = firstOutcome["_text"] as! String
-        let entityDict : NSDictionary = firstOutcome["entities"] as! NSDictionary
-        let location : NSArray = entityDict["location"] as! NSArray
-        let test : NSDictionary = location.objectAtIndex(0) as! NSDictionary
-        let entity: String = test["value"] as! String
+        let intent : String = firstOutcome["intent"] as! String
+        print(intent)
         
+        // add conditional logic for each intent here
+        // this should address each intent's internal form and their own specific function calls
+        if intent == "RouteToLocation" {
+            let entityDict : NSDictionary = firstOutcome["entities"] as! NSDictionary
+            let location : NSDictionary = entityDict["location"]!.objectAtIndex(0) as! NSDictionary
+            let entity: String = location["value"] as! String
+            getDestination(entity)
+        }
+        
+        // Set the ASR reco label to the text
         self.textLabel!.text = text
         self.textLabel!.sizeToFit()
-        
-        getDestination(entity)
     }
     
     // locationManager
