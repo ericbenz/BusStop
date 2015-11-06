@@ -15,6 +15,10 @@ All students below are Brandeis Computational Linguistics MA 2016s
 - build out new wit intents
 - train RouteToLocation intent (4x10 instances on mobile devices)
 
+### User Testing
+- Verify userLocation label updates as user moves
+- Verify map displays routing directions to reasonable locations near the user
+
 ### Done
 - map zooms to user location
 - map updates as user moves
@@ -22,3 +26,7 @@ All students below are Brandeis Computational Linguistics MA 2016s
 - RouteToLocation intent integrated
 - Directions generated with extracted ASR
 - Map polyline overlay working for directions
+- Figure out how to get app on phones for testing
+
+### Blockers
+Eric - iPhone beta OS not compatible with current version of Xcode, which is complicating putting app on device for user testing
