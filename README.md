@@ -5,4 +5,20 @@ Final project for [COSI 136a Automated Speech Recognition](http://www.cs.brandei
 All students below are Brandeis Computational Linguistics MA 2016s
 - Eric Benzschawel
 - Adam Berger
+- Suzanne Blackley
 - Swini Garimella
+
+### To Do List
+- add destination pin at destination
+- figure out how to get bus routing information
+- look into geographical coverage for transit routing
+- build out new wit intents
+- train RouteToLocation intent (4x10 instances on mobile devices)
+
+### Done
+- map zooms to user location
+- map updates as user moves
+- wit.ai integrated
+- RouteToLocation intent integrated
+- Directions generated with extracted ASR
+- Map polyline overlay working for directions
