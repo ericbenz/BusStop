@@ -5,9 +5,9 @@ Will obviously change the name of this source directory at some point to reflect
 
 ## Getting Started
 
-Replace `xxx` with your access token in `AppDeletage.swift`:
+Replace `xxx` with Eric's access token in `AppDeletage.swift`:
 ```
-Wit.sharedInstance().accessToken = "xxx" // replace xxx by your Wit access token
+Wit.sharedInstance().accessToken = "xxx"
 ```
 
 ## Code to checkout
