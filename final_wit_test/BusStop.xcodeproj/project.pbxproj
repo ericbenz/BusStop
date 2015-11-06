@@ -31,13 +31,13 @@
 		0792FD811BD96F6300EFDF49 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3007767BEA05744256264756 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		800061B01AB2E3200059EBD4 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
-		801261D41A615373001E8618 /* final_wit_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = final_wit_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		801261D41A615373001E8618 /* BusStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801261D81A615373001E8618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		801261D91A615373001E8618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801261DB1A615373001E8618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		801261DE1A615373001E8618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801261E31A615373001E8618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		801261E91A615373001E8618 /* final_wit_test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = final_wit_test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		801261E91A615373001E8618 /* BusStop.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusStop.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		801261EE1A615373001E8618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		801261EF1A615373001E8618 /* WitAITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WitAITests.swift; sourceTree = "<group>"; };
 		83001C38700DF746E649C5BE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 		801261D51A615373001E8618 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				801261D41A615373001E8618 /* final_wit_test.app */,
-				801261E91A615373001E8618 /* final_wit_test.xctest */,
+				801261D41A615373001E8618 /* BusStop.app */,
+				801261E91A615373001E8618 /* BusStop.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		801261D31A615373001E8618 /* final_wit_test */ = {
+		801261D31A615373001E8618 /* BusStop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 801261F31A615373001E8618 /* Build configuration list for PBXNativeTarget "final_wit_test" */;
+			buildConfigurationList = 801261F31A615373001E8618 /* Build configuration list for PBXNativeTarget "BusStop" */;
 			buildPhases = (
 				5525FEDAD93161933AF5436F /* Check Pods Manifest.lock */,
 				801261D01A615373001E8618 /* Sources */,
@@ -159,14 +159,14 @@
 			);
 			dependencies = (
 			);
-			name = final_wit_test;
+			name = BusStop;
 			productName = WitAI;
-			productReference = 801261D41A615373001E8618 /* final_wit_test.app */;
+			productReference = 801261D41A615373001E8618 /* BusStop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		801261E81A615373001E8618 /* final_wit_testTests */ = {
+		801261E81A615373001E8618 /* BusStopTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 801261F61A615373001E8618 /* Build configuration list for PBXNativeTarget "final_wit_testTests" */;
+			buildConfigurationList = 801261F61A615373001E8618 /* Build configuration list for PBXNativeTarget "BusStopTests" */;
 			buildPhases = (
 				801261E51A615373001E8618 /* Sources */,
 				801261E61A615373001E8618 /* Frameworks */,
@@ -177,9 +177,9 @@
 			dependencies = (
 				801261EB1A615373001E8618 /* PBXTargetDependency */,
 			);
-			name = final_wit_testTests;
+			name = BusStopTests;
 			productName = WitAITests;
-			productReference = 801261E91A615373001E8618 /* final_wit_test.xctest */;
+			productReference = 801261E91A615373001E8618 /* BusStop.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -195,6 +195,7 @@
 				TargetAttributes = {
 					801261D31A615373001E8618 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = TCQY7J65X8;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -207,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 801261CF1A615373001E8618 /* Build configuration list for PBXProject "final_wit_test" */;
+			buildConfigurationList = 801261CF1A615373001E8618 /* Build configuration list for PBXProject "BusStop" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -220,8 +221,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				801261D31A615373001E8618 /* final_wit_test */,
-				801261E81A615373001E8618 /* final_wit_testTests */,
+				801261D31A615373001E8618 /* BusStop */,
+				801261E81A615373001E8618 /* BusStopTests */,
 			);
 		};
 /* End PBXProject section */
@@ -302,7 +303,7 @@
 /* Begin PBXTargetDependency section */
 		801261EB1A615373001E8618 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 801261D31A615373001E8618 /* final_wit_test */;
+			target = 801261D31A615373001E8618 /* BusStop */;
 			targetProxy = 801261EA1A615373001E8618 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -412,10 +413,11 @@
 			baseConfigurationReference = 3007767BEA05744256264756 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WitAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ericbenz.final-wit-test";
-				PRODUCT_NAME = final_wit_test;
+				PRODUCT_NAME = BusStop;
 				SWIFT_OBJC_BRIDGING_HEADER = WitAIObjCBridgingHeader.h;
 			};
 			name = Debug;
@@ -425,10 +427,11 @@
 			baseConfigurationReference = 83001C38700DF746E649C5BE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WitAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ericbenz.final-wit-test";
-				PRODUCT_NAME = final_wit_test;
+				PRODUCT_NAME = BusStop;
 				SWIFT_OBJC_BRIDGING_HEADER = WitAIObjCBridgingHeader.h;
 			};
 			name = Release;
@@ -448,8 +451,8 @@
 				INFOPLIST_FILE = WitAITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "aaab.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = final_wit_test;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/final_wit_test.app/final_wit_test";
+				PRODUCT_NAME = BusStop;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusStop.app/BusStop";
 			};
 			name = Debug;
 		};
@@ -464,15 +467,15 @@
 				INFOPLIST_FILE = WitAITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "aaab.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = final_wit_test;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/final_wit_test.app/final_wit_test";
+				PRODUCT_NAME = BusStop;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusStop.app/BusStop";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		801261CF1A615373001E8618 /* Build configuration list for PBXProject "final_wit_test" */ = {
+		801261CF1A615373001E8618 /* Build configuration list for PBXProject "BusStop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				801261F11A615373001E8618 /* Debug */,
@@ -481,7 +484,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		801261F31A615373001E8618 /* Build configuration list for PBXNativeTarget "final_wit_test" */ = {
+		801261F31A615373001E8618 /* Build configuration list for PBXNativeTarget "BusStop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				801261F41A615373001E8618 /* Debug */,
@@ -490,7 +493,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		801261F61A615373001E8618 /* Build configuration list for PBXNativeTarget "final_wit_testTests" */ = {
+		801261F61A615373001E8618 /* Build configuration list for PBXNativeTarget "BusStopTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				801261F71A615373001E8618 /* Debug */,

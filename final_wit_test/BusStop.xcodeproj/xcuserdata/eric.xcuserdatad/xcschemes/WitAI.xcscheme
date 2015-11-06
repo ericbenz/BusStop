@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "801261D31A615373001E8618"
                BuildableName = "final_wit_test.app"
-               BlueprintName = "final_wit_test"
-               ReferencedContainer = "container:final_wit_test.xcodeproj">
+               BlueprintName = "BusStop"
+               ReferencedContainer = "container:BusStop.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "801261E81A615373001E8618"
-               BuildableName = "final_wit_test.xctest"
-               BlueprintName = "final_wit_testTests"
-               ReferencedContainer = "container:final_wit_test.xcodeproj">
+               BuildableName = "BusStop.xctest"
+               BlueprintName = "BusStopTests"
+               ReferencedContainer = "container:BusStop.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
             BuildableName = "final_wit_test.app"
-            BlueprintName = "final_wit_test"
-            ReferencedContainer = "container:final_wit_test.xcodeproj">
+            BlueprintName = "BusStop"
+            ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,8 +67,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
             BuildableName = "final_wit_test.app"
-            BlueprintName = "final_wit_test"
-            ReferencedContainer = "container:final_wit_test.xcodeproj">
+            BlueprintName = "BusStop"
+            ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -86,8 +86,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
             BuildableName = "final_wit_test.app"
-            BlueprintName = "final_wit_test"
-            ReferencedContainer = "container:final_wit_test.xcodeproj">
+            BlueprintName = "BusStop"
+            ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
