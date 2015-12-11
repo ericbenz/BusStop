@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>BusStop by ericbenz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">BusStop</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/ericbenz/BusStop" class="btn">View on GitHub</a>
+      <a href="https://github.com/ericbenz/BusStop/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ericbenz/BusStop/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="welcome-to-busstop" class="anchor" href="#welcome-to-busstop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to BusStop</h3>
+
+<p>BusStop is an iOS app developed for the final project in COSI134 <em>Automated Speech Recognition</em> at Brandeis University. BusStop is a proof-of-concept app which integrates transit routing and predictions with a voice recognition system to afford users the flexibility offered by speech-controlled apps.</p>
+
+<h3>
+<a id="group-members" class="anchor" href="#group-members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Group Members</h3>
+
+<ul>
+<li>Eric Benzschawel (<a href="mailto:ericbenz@brandeis.edu">ericbenz@brandeis.edu</a>)</li>
+<li>Adam Berger (<a href="mailto:akberger@brandeis.edu">akberger@brandeis.edu</a>)</li>
+<li>Suzanne Blackley (<a href="mailto:sblackle@brandeis.edu">sblackle@brandeis.edu</a>)</li>
+<li>Swini Garimella (<a href="mailto:mrg@brandeis.edu">mrg@brandeis.edu</a>)</li>
+</ul>
+
+<h3>
+<a id="download-instructions-and-api-keys" class="anchor" href="#download-instructions-and-api-keys" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download Instructions and API keys</h3>
+
+<h3>
+<a id="major-functionalities" class="anchor" href="#major-functionalities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Major Functionalities</h3>
+
+<p>This is a proof-of-concept application. The majority of development time was spent on API integration, learning the Swift programming language, and familiarizing ourselves with mobile app development in general. Please understand the rough edges around things.</p>
+
+<p>Our primary goal was exploring how speech recognition could be integrated with existing transit app functionality. As a result, we consulted apps and websites such as <a href="https://www.nextbus.com/">NextBus.com</a>, <a href="https://itunes.apple.com/us/app/transit-app-real-time-tracker/id498151501?mt=8">Transit</a>, <a href="http://www.t-on-time.com/">T-on-Time</a>, <a href="http://www.apple.com/ios/maps/">Apple Maps</a>, and <a href="http://maps.google.com/">Google Maps</a>.</p>
+
+<p>Using the speech recognition system, we implemented features such as:</p>
+
+<ul>
+<li>ceasing routing and location tracking</li>
+<li>querying bus arrival times</li>
+<li>identifying nearby bus stops</li>
+</ul>
+
+<h3>
+<a id="app-use" class="anchor" href="#app-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>App Use</h3>
+
+<ol>
+<li>Open the app and allow the app to track your location and access your microphone</li>
+<li>To use the ASR system, touch the large microphone button once</li>
+</ol>
+
+<h3>
+<a id="suggested-use" class="anchor" href="#suggested-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Suggested Use</h3>
+
+<ul>
+<li>Routing to a particular location in your geographic vicinity: <em>Route me to Brandeis University</em>
+</li>
+<li>Finding out when nearby busses arrive at the stop closest to you: <em>Is the bus coming soon?</em>
+</li>
+<li>Retrieving your ETA to destination: <em>When are we going to be there?</em>
+</li>
+<li>Stopping routing and tracking when you know where you are: <em>Alright, I know where I am</em>
+</li>
+</ul>
+
+<p>Please explore the ASR functionality by issuing commands addressing the four areas above. We spent a considerable amount of time tuning the ASR system, though recognition may not be as robust as some of your queries. In these events, the app may crash or display an error message when the ASR returns a low-confidence output.</p>
+
+<h3>
+<a id="voice-recognition-system---witai" class="anchor" href="#voice-recognition-system---witai" aria-hidden="true"><span class="octicon octicon-link"></span></a>Voice Recognition System - wit.ai</h3>
+
+<p>We used <a href="https://wit.ai">wit.ai</a>, a cloud-based voice recognition system to allow our iOS app to use speech recognition. Though Siri is widely associated with speech functionalities on Apple devices, it is currently not open to developers.</p>
+
+<p>Integration of wit.ai was non-trivial, as we found it was truly meant for Objective-C based apps rather than Swift based ones like this. As a result, we used <a href="https://github.com/aaronabentheuer" class="user-mention">@aaronabentheuer</a>'s <a href="https://github.com/aaronabentheuer/wit-ios-helloworld-swift">Swift implementation</a> as a springboard to our built out app.</p>
+
+<p>The responses provided by wit.ai serve as the basis for the majority of the app's major functionalities.</p>
+
+<h3>
+<a id="other-consulted-apis" class="anchor" href="#other-consulted-apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other consulted APIs</h3>
+
+<p>In addition to wit.ai, we also used the <a href="https://developers.google.com/maps/documentation/directions/?hl=en">Google Directions API</a> and the <a href="http://realtime.mbta.com/portal">MBTA Realtime API</a> for public transit and routing information.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ericbenz/BusStop">BusStop</a> is maintained by <a href="https://github.com/ericbenz">ericbenz</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
