@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "801261D31A615373001E8618"
-               BuildableName = "final_wit_test.app"
+               BuildableName = "BusStop.app"
                BlueprintName = "BusStop"
                ReferencedContainer = "container:BusStop.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
-            BuildableName = "final_wit_test.app"
+            BuildableName = "BusStop.app"
             BlueprintName = "BusStop"
             ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
-            BuildableName = "final_wit_test.app"
+            BuildableName = "BusStop.app"
             BlueprintName = "BusStop"
             ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "801261D31A615373001E8618"
-            BuildableName = "final_wit_test.app"
+            BuildableName = "BusStop.app"
             BlueprintName = "BusStop"
             ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>

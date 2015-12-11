@@ -82,7 +82,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             print("\(e.localizedDescription)")
             return
         }
-
         
         // get the wit.ai results and store to outcomes
         let outcomes : NSArray = outcomes!
@@ -159,7 +158,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         }
     }
-    
+
     // mapView delegate
     // takes in an MKOverlay and renders it on the map
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
