@@ -89,12 +89,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let text : String = firstOutcome["_text"] as! String
         let intent : String = firstOutcome["intent"] as! String
         print(intent)
+        print(firstOutcome)
         
         // add conditional logic for each intent here
         // this should address each intent's internal form and their own specific function calls
         if intent == "RouteToLocation" {
             let entityDict : NSDictionary = firstOutcome["entities"] as! NSDictionary
-            let location : NSDictionary = entityDict["location"]!.objectAtIndex(0) as! NSDictionary
+            let location : NSDictionary = entityDict["local_search_query"]!.objectAtIndex(0) as! NSDictionary
             let entity: String = location["value"] as! String
             getDestination(entity)
         }
