@@ -129,8 +129,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 //print(data)
                 let routes = self.getPossibleBusRoutesFromGoogle(data)
                 print(routes.count)
-                let eta = self.getETAForBusRoute(routes[0])
-                print(eta)
+                if routes.count > 0 {
+                    let eta = self.getETAForBusRoute(routes[0])
+                    print(eta)
+                    let dt = self.getDepartureTimeForBusRoute(routes[0])
+                    print(dt)
+                }
             }
         }
     }
@@ -258,6 +262,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         }
         return eta
+    }
+    
+    // Returns the ETA as a string for a particular bus route
+    func getDepartureTimeForBusRoute(route : NSDictionary) -> String {
+        var dt = String()
+        for leg in route["legs"] as! [NSDictionary] {
+            for step in leg["steps"] as! [NSDictionary] {
+                if let tmode = step["travel_mode"] {
+                    if tmode as! String == "TRANSIT" {
+                        if let departure_time = leg["departure_time"] {
+                            if let txt = departure_time["text"] {
+                                dt = txt as! String
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        return dt
     }
 
 
