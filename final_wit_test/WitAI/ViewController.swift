@@ -134,6 +134,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     print(eta)
                     let dt = self.getDepartureTimeForBusRoute(routes[0])
                     print(dt)
+                    let polyline = self.getOverviewPolyline(routes[0])
+                    print(polyline)
                 }
             }
         }
@@ -264,7 +266,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         return eta
     }
     
-    // Returns the ETA as a string for a particular bus route
+    // Returns the departure time as a string for a particular bus route
     func getDepartureTimeForBusRoute(route : NSDictionary) -> String {
         var dt = String()
         for leg in route["legs"] as! [NSDictionary] {
@@ -283,7 +285,34 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
         return dt
     }
+    
+    // Returns the bus route number
+    func getBusRoute(route : NSDictionary) -> String {
+        var route_number = String()
+        for leg in route["legs"] as! [NSDictionary] {
+            for step in leg["steps"] as! [NSDictionary] {
+                if let tmode = step["travel_mode"] {
+                    if tmode as! String == "TRANSIT" {
+                        if let departure_time = leg["departure_time"] {
+                            if let txt = departure_time["text"] {
+                                route_number = txt as! String
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
+        return route_number
+    }
 
+    func getOverviewPolyline(route : NSDictionary) -> String {
+        var polyline = String()
+        if let poly = route["overview_polyline"] {
+            polyline = poly["points"] as! String
+        }
+        return polyline
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
