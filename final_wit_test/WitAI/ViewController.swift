@@ -110,8 +110,54 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     // output: updates the curLocation field with a string form of the user's current location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.curLocation.text = "\(locations[0])"
+        
+        let GoogURL = "https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&mode=transit&arrival_time=1391374800&key=AIzaSyAin3j3P5jwRY6fPdPbMTfeqLU_jHwWWG0"
+        
+        print(GoogURL)
+        
+        //let url = "http://realtime.mbta.com/developer/api/v2/stopsbylocation?api_key=T1IWGlJK52dKlb4KaShXMg2&lat=" + lat + "&lon=" + lon + "&format=json"
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: GoogURL)!)
+        
+        httpGet(request){
+            (data, error) -> Void in
+            if (error != ""){
+                print("error")
+                print(error)
+            } else{
+                print("json")
+                //print(data)
+                let routes = self.parseGoogleDirections(data)
+                print(routes.count)
+            }
+        }
     }
     
+    //make a REST API call
+    //we will be doing this to get info from the MBTA realtime API
+    //returns a NSDictionary object that can then be parsed
+    func httpGet(request: NSURLRequest!, callback: (NSDictionary, String) -> Void) {
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        let task = session.dataTaskWithRequest(request,
+            completionHandler: {(data, response, error) in
+            if error != nil {
+                let emptyDict: NSDictionary = [:]
+                callback(emptyDict, (error?.localizedDescription)!)
+            } else {
+                do {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                    //print(json)
+                    callback(json as! NSDictionary, "")
+                } catch {
+                    print("error serializing JSON: \(error)")
+                }
+            }
+        });
+        task.resume()
+        
+    }
+
     // getDestionation
     // input: string -> destination
     // Takes a destination returned from wit.ai and sets the destination field as this location's coordinate
@@ -127,6 +173,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         })
     }
+    
+
     
     // getDirections
     // input: destinatino -> CLLocationCoordinate2D
@@ -170,9 +218,38 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         return renderer
     }
     
+    // Parses JSON-formatted directions from Google
+    func parseGoogleDirections(data : NSDictionary) -> [NSDictionary] {
+        var bus_routes = [NSDictionary]()
+        let routes = data["routes"] as! [NSDictionary]
+        for route in routes {
+            var isValidRoute = true
+            for leg in route["legs"] as! [NSDictionary] {
+                for step in leg["steps"] as! [NSDictionary] {
+                    if let step2 = step["steps"] {
+                        if let travel_mode = step2["travel_mode"] {
+                            if travel_mode!.string == "TRANSIT" {
+                                if step2["transit_details"]!!["line"]!!["vehicle"]!!["type"]!!.string != "BUS" {
+                                    isValidRoute = false
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if isValidRoute {
+                bus_routes.append(route)
+            }
+        }
+        return bus_routes
+    }
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 }
 
