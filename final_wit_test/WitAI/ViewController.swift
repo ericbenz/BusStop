@@ -111,9 +111,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.curLocation.text = "\(locations[0])"
         
-        let GoogURL = "https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&mode=transit&arrival_time=1391374800&key=AIzaSyAin3j3P5jwRY6fPdPbMTfeqLU_jHwWWG0"
+        let GoogURL = "https://maps.googleapis.com/maps/api/directions/json?origin=central+square+cambridge+ma&destination=brandeis+university+waltham+ma&mode=transit&arrival_time=1391374800&key=AIzaSyAin3j3P5jwRY6fPdPbMTfeqLU_jHwWWG0"
         
-        print(GoogURL)
+        //print(GoogURL)
         
         //let url = "http://realtime.mbta.com/developer/api/v2/stopsbylocation?api_key=T1IWGlJK52dKlb4KaShXMg2&lat=" + lat + "&lon=" + lon + "&format=json"
         
@@ -127,8 +127,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             } else{
                 print("json")
                 //print(data)
-                let routes = self.parseGoogleDirections(data)
+                let routes = self.getPossibleBusRoutesFromGoogle(data)
                 print(routes.count)
+                let eta = self.getETAForBusRoute(routes[0])
+                print(eta)
             }
         }
     }
@@ -219,7 +221,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     // Parses JSON-formatted directions from Google
-    func parseGoogleDirections(data : NSDictionary) -> [NSDictionary] {
+    func getPossibleBusRoutesFromGoogle(data : NSDictionary) -> [NSDictionary] {
         var bus_routes = [NSDictionary]()
         let routes = data["routes"] as! [NSDictionary]
         for route in routes {
@@ -243,6 +245,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         }
         return bus_routes
+    }
+    
+    // Returns the ETA as a string for a particular bus route
+    func getETAForBusRoute(route : NSDictionary) -> String {
+        var eta = String()
+        for leg in route["legs"] as! [NSDictionary] {
+            if let arrival_time = leg["arrival_time"] {
+                if let txt = arrival_time["text"] {
+                    eta = txt as! String
+                }
+            }
+        }
+        return eta
     }
 
 
