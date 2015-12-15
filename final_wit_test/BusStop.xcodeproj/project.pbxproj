@@ -34,7 +34,7 @@
 		801261D41A615373001E8618 /* BusStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801261D81A615373001E8618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		801261D91A615373001E8618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		801261DB1A615373001E8618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		801261DB1A615373001E8618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; };
 		801261DE1A615373001E8618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801261E31A615373001E8618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		801261E91A615373001E8618 /* BusStop.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusStop.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,7 +195,7 @@
 				TargetAttributes = {
 					801261D31A615373001E8618 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = TCQY7J65X8;
+						DevelopmentTeam = ZPGGQZBQQ5;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -416,7 +416,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WitAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ericbenz.final-wit-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "mrggrm.final-wit-test";
 				PRODUCT_NAME = BusStop;
 				SWIFT_OBJC_BRIDGING_HEADER = WitAIObjCBridgingHeader.h;
 			};
@@ -430,7 +430,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WitAI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ericbenz.final-wit-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "mrggrm.final-wit-test";
 				PRODUCT_NAME = BusStop;
 				SWIFT_OBJC_BRIDGING_HEADER = WitAIObjCBridgingHeader.h;
 			};

@@ -100,6 +100,7 @@
 		DA6DF63C4B8A5BA6DBF2BD83 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		DD43F77F257DC99C661E683E /* RecordingSessionStarter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RecordingSessionStarter.h; path = Wit/RecordingSessionStarter.h; sourceTree = "<group>"; };
 		DDFA66EBD3B735428BA25F94 /* WITState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WITState.h; path = Wit/WITState.h; sourceTree = "<group>"; };
+		DEBE2AE91C1B5443004458B4 /* Pods-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-Bridging-Header.h"; sourceTree = "<group>"; };
 		E0D63C21ED670816C7F90045 /* util.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = util.m; path = Wit/util.m; sourceTree = "<group>"; };
 		EB107A8DDEAE92093ACC458C /* WITContextSetter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WITContextSetter.m; path = Wit/WITContextSetter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +241,7 @@
 				149DD2FEFD9D4BA39C1F8E8B /* Pods */,
 				8A304B9E44E676D87B261B64 /* Products */,
 				39B13150038C2E2BBD46B2A7 /* Targets Support Files */,
+				DEBE2AE91C1B5443004458B4 /* Pods-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -323,6 +325,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0510;
 			};
 			buildConfigurationList = 2692FE79AFD6CE4640F7B439 /* Build configuration list for PBXProject "Pods" */;
@@ -510,11 +513,13 @@
 			baseConfigurationReference = 89EB5296DA0CDC32C3224ABE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"$(inherited)",
@@ -528,6 +533,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pods-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -537,6 +543,7 @@
 			baseConfigurationReference = B808A14553769263BF87D571 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -549,11 +556,14 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pods-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};

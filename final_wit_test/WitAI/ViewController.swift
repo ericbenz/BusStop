@@ -108,6 +108,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 if entityDict["location"] == nil {
                     let location : NSDictionary = entityDict["local_search_query"]!.objectAtIndex(0) as! NSDictionary
                     let entity: String = location["value"] as! String
+                    let utterance: String = "Getting directions to " + entity
+                    textToSpeech(utterance)
                     getDestination(entity)
                 }
                 else{
@@ -154,71 +156,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     // output: updates the curLocation field with a string form of the user's current location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.curLocation.text = "\(locations[0])"
-        /*
-        let GoogURL = "https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&mode=transit&arrival_time=1391374800&key=AIzaSyAin3j3P5jwRY6fPdPbMTfeqLU_jHwWWG0"
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: GoogURL)!)
-        
-        httpGet(request){
-            (data, error) -> Void in
-            if (error != ""){
-                print("error")
-                print(error)
-            } else{
-                let routes = self.parseGoogleDirections(data)
-                //print (routes.count)
-            }
-        }
-        */
-    }
-    
-    // Parses JSON-formatted directions from Google
-    
-    func parseGoogleDirections(data : NSDictionary) -> [NSDictionary] {
-        var bus_routes = [NSDictionary]()
-        let routes = data["routes"] as! [NSDictionary]
-        for route in routes {
-            var isValidRoute = true
-            for leg in route["legs"] as! [NSDictionary] {
-                for step in leg["steps"] as! [NSDictionary] {
-                    if let step2 = step["steps"] {
-                        if let travel_mode = step2["travel_mode"] {
-                            if travel_mode!.string == "TRANSIT" {
-                                if step2["transit_details"]!!["line"]!!["vehicle"]!!["type"]!!.string != "BUS" {
-                                    isValidRoute = false
-                                    break
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            if isValidRoute {
-                bus_routes.append(route)
-            }
-        }
-        return bus_routes
-    }
-    
-    func getOverviewPolyline(route : NSDictionary) -> String {
-        var polyline = String()
-        if let poly = route["overview_polyline"] {
-            polyline = poly["points"] as! String
-        }
-        return polyline
-    }
-    
-    // Returns the ETA as a string for a particular bus route
-    func getETAForBusRoute(route : NSDictionary) -> String {
-        var eta = String()
-        for leg in route["legs"] as! [NSDictionary] {
-            if let arrival_time = leg["arrival_time"] {
-                if let txt = arrival_time["text"] {
-                    eta = txt as! String
-                }
-            }
-        }
-        return eta
     }
 
 
@@ -227,8 +164,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     // Takes a destination returned from wit.ai and sets the destination field as this location's coordinate
     func getDestination(destination : String) {
         let geocoder = CLGeocoder()
-        
-        geocoder.geocodeAddressString(destination, completionHandler: {(placemarks, error) -> Void in
+        geocoder.geocodeAddressString(destination, inRegion : nil, completionHandler: {(placemarks, error) -> Void in
             if let placemark = placemarks?.first {
                 let destinationCoords: CLLocationCoordinate2D = placemark.location!.coordinate
                 self.destination = destinationCoords
@@ -241,7 +177,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 let endlon = String(destinationCoords.longitude)
                 
                 
-                let GoogURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startlat + "," + startlon + "+&destination=" + endlat + "," + endlon + "&mode=transit&alternatives=true&key=AIzaSyAin3j3P5jwRY6fPdPbMTfeqLU_jHwWWG0"
+                let GoogURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startlat + "," + startlon + "+&destination=" + endlat + "," + endlon + "&region=us&mode=transit&alternatives=true&key=AIzaSyAin3j3P5jwRY6fPdPbMTfeqLU_jHwWWG0"
                 
                 print(GoogURL)
                 
@@ -253,20 +189,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         print("error")
                         print(error)
                     } else{
-                        print("json")
+                        print("Found routes")
                         let routes = self.getPossibleBusRoutesFromGoogle(data)
                         print(routes.count)
                         if routes.count > 0 {
                             self.bestRoute = routes[0]
                             self.ETA = self.getETAForBusRoute(routes[0])
-                            print("ETA")
-                            print(self.ETA)
                             self.departureTime = self.getDepartureTimeForBusRoute(routes[0])
-                            let polyline = self.getOverviewPolyline(routes[0])
-                            //print(polyline)
-                            let route_number = self.getBusRoute(routes[0])
-                            print(route_number)
+                            _ = self.getOverviewPolyline(routes[0])
+                            _ = self.getBusRoute(routes[0])
                             self.getDirections(destinationCoords, route: routes[0])
+                        }
+                        else {
+                            self.textToSpeech("I'm afraid I can't do that.", rate: 0.35)
                         }
                     }
                 }
@@ -472,6 +407,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         }
         return route_number
+    }
+    
+    func getOverviewPolyline(route : NSDictionary) -> String {
+        var polyline = String()
+        if let poly = route["overview_polyline"] {
+            polyline = poly["points"] as! String
+        }
+        return polyline
+    }
+    
+    // Returns the ETA as a string for a particular bus route
+    func getETAForBusRoute(route : NSDictionary) -> String {
+        var eta = String()
+        for leg in route["legs"] as! [NSDictionary] {
+            if let arrival_time = leg["arrival_time"] {
+                if let txt = arrival_time["text"] {
+                    eta = txt as! String
+                }
+            }
+        }
+        return eta
     }
     
     func clearNav(){
