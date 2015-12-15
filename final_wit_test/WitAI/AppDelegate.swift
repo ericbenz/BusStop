@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MKMapViewDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         //You can grab your access-token from your Wit console, under Settings\Access Token.
-        Wit.sharedInstance().accessToken = "xxx"
+        Wit.sharedInstance().accessToken = "OCUYGUAF6W3M5U5CXBH7CKBMDC6ZJO6Y"
         Wit.sharedInstance().detectSpeechStop = WITVadConfig.DetectSpeechStop
         
         return true
