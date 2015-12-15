@@ -47,6 +47,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var navigation_directions = [String]()
     var navigation_step = 1
     
+    var bestRoute : NSDictionary!
+    var ETA : String!
+    var departureTime : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,10 +127,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.textToSpeech(direction)
                     self.navigation_step++
                 }
+            } else if intent == "getDestinationETA" {
+                self.textToSpeech(self.ETA)
+            } else if intent == "getDepartureTime" {
+                self.textToSpeech(self.departureTime)
             }
             
             // Set the ASR reco label to the text
-            self.textLabel!.text = text
+            self.textLabel!.text = "\"" + text + "\""
             self.textLabel!.sizeToFit()
         }
         else{
@@ -135,9 +143,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    func textToSpeech(utterance: String) {
+    func textToSpeech(utterance: String, rate : Float = 0.5) {
         let myUtterance = AVSpeechUtterance(string: utterance)
-        myUtterance.rate = 0.5
+        myUtterance.rate = rate
         synth.speakUtterance(myUtterance)
     }
     
@@ -224,7 +232,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             if let placemark = placemarks?.first {
                 let destinationCoords: CLLocationCoordinate2D = placemark.location!.coordinate
                 self.destination = destinationCoords
-                self.entityLabel!.text = "\(destinationCoords.latitude), \(destinationCoords.longitude)"
+                self.entityLabel!.text = destination
+                //self.entityLabel!.text = "\(destinationCoords.latitude), \(destinationCoords.longitude)"
                 //self.getDirections(destinationCoords)
                 let startlat = String(self.navMap.userLocation.coordinate.latitude)
                 let startlon = String(self.navMap.userLocation.coordinate.longitude)
@@ -248,10 +257,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         let routes = self.getPossibleBusRoutesFromGoogle(data)
                         print(routes.count)
                         if routes.count > 0 {
-                            let eta = self.getETAForBusRoute(routes[0])
-                            print(eta)
-                            let dt = self.getDepartureTimeForBusRoute(routes[0])
-                            print(dt)
+                            self.bestRoute = routes[0]
+                            self.ETA = self.getETAForBusRoute(routes[0])
+                            print("ETA")
+                            print(self.ETA)
+                            self.departureTime = self.getDepartureTimeForBusRoute(routes[0])
                             let polyline = self.getOverviewPolyline(routes[0])
                             //print(polyline)
                             let route_number = self.getBusRoute(routes[0])
