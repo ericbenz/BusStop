@@ -134,7 +134,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
             
             // Set the ASR reco label to the text
-            self.textLabel!.text = text
+            self.textLabel!.text = "\"" + text + "\""
             self.textLabel!.sizeToFit()
         }
         else{
@@ -143,9 +143,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    func textToSpeech(utterance: String) {
+    func textToSpeech(utterance: String, rate : Float = 0.5) {
         let myUtterance = AVSpeechUtterance(string: utterance)
-        myUtterance.rate = 0.5
+        myUtterance.rate = rate
         synth.speakUtterance(myUtterance)
     }
     
@@ -232,7 +232,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             if let placemark = placemarks?.first {
                 let destinationCoords: CLLocationCoordinate2D = placemark.location!.coordinate
                 self.destination = destinationCoords
-                self.entityLabel!.text = "\(destinationCoords.latitude), \(destinationCoords.longitude)"
+                self.entityLabel!.text = destination
+                //self.entityLabel!.text = "\(destinationCoords.latitude), \(destinationCoords.longitude)"
                 //self.getDirections(destinationCoords)
                 let startlat = String(self.navMap.userLocation.coordinate.latitude)
                 let startlon = String(self.navMap.userLocation.coordinate.longitude)
